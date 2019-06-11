@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ticket Viewer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+  <!--Page is wrapped in Container just to have a cusion on page -->
+  <div class="container">
+    <h1>My Ticket Viewer</h1>
+
+<!-- This is used to wrapped the container of Table logically in order to show all the tickets -->
+<div class="container-fluid">
+
+  <table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col">Ticket#</th>
+      <th scope="col">Subject</th>
+      <th scope="col">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets%}
+    <tr>
+      <th scope="row"><a href="/view/{{ ticket.id }}">{{ ticket.id }}</a></th>
+      <td><a href="/view/{{ ticket.id }}">{{ ticket.subject }}</a></td>
+      <td>{{ ticket.url }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+  </div>
+</div>
+</body>
+</html>
